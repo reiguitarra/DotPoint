@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace DotPonto.Entities
+namespace DotPonto.Models
 {
-    public class Empresa
+    public class Empresas
     {
         public int Id { get; set; }
         public string RazaoSocial { get; set; }
@@ -18,17 +18,17 @@ namespace DotPonto.Entities
         public string CNAE { get; set; }
         public string InscricaoMunicipal { get; set; }
         public string InscricaoEstadual { get; set; }
-        public ICollection<Filial> Filial { get; set; }
+        public ICollection<Filiais> Filial { get; set; }
 
 
 
-        public Empresa()
+        public Empresas()
         {
 
         }
 
-        public Empresa(int id, string razaoSocial, string empEndereco, string empEndNumero, 
-            string empEndBairro, string empEndCidade, string empEndUF, string empEndCEP, 
+        public Empresas(int id, string razaoSocial, string empEndereco, string empEndNumero,
+            string empEndBairro, string empEndCidade, string empEndUF, string empEndCEP,
             string cNAE, string inscricaoMunicipal, string inscricaoEstadual)
         {
             Id = id;
