@@ -43,5 +43,15 @@ namespace DotPonto.Models
             InscricaoMunicipal = inscricaoMunicipal;
             InscricaoEstadual = inscricaoEstadual;
         }
+
+        public int ContaRegistros()
+        {
+            List<int> reg = new List<int>();
+            reg.Add(Id);
+
+            int res = reg.Count();
+
+            return res;
+        }
     }
 }

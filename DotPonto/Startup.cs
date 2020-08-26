@@ -8,6 +8,10 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using DotPonto.Data;
+using DotPonto.Services;
+using DotPonto.Models;
 
 namespace DotPonto
 {
@@ -24,6 +28,29 @@ namespace DotPonto
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            //services.Configure<CookiePolicyOptions>(options =>
+            //{
+            //    // This lambda determines whether user consent for non-essential cookies is needed for a given request.
+            //    options.CheckConsentNeeded = context => true;
+            //    options.MinimumSameSitePolicy = SameSiteMode.None;
+            //});
+
+
+            //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<DotPontoContext>(options =>
+                    options.UseMySql(Configuration.GetConnectionString("DotPontoContext"),
+                    builder => builder.MigrationsAssembly("DotPonto")));
+
+
+            
+            services.AddScoped<EmpresaService>();
+            services.AddScoped<FilialService>();
+            services.AddScoped<LotacaoService>();
+            services.AddScoped<FuncionarioService>();
+            services.AddScoped<UsuarioService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
