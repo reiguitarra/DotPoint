@@ -1,0 +1,27 @@
+﻿@model DotPonto.Models.Lotacao
+
+@{
+    ViewData["Title"] = "Excluir Registro";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Tem certeza que deseja excluir este registro?</h3>
+<div>
+    <h4>Lotacao</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LotNome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LotNome)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="LotId" />
+        <input type="submit" value="Deletar" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-link">Volta</a>
+    </form>
+</div>

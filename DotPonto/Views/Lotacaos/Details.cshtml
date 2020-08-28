@@ -1,0 +1,24 @@
+﻿@model DotPonto.Models.Lotacao
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Lotacao</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LotNome)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LotNome)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.LotId" class="btn btn-primary">Editar</a> |
+    <a asp-action="Index" class="btn btn-link">Voltar</a>
+</div>

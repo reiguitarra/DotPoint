@@ -2,22 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace DotPonto.Models
 {
     public class Empresas
     {
         public int Id { get; set; }
+
+        [Display(Name ="Empresa")]
+        [Required]
         public string RazaoSocial { get; set; }
+        [Display(Name = "Endereço")]
         public string EmpEndereco { get; set; }
+        [Display(Name = "Nº")]
         public string EmpEndNumero { get; set; }
+        [Display(Name = "Bairro")]
         public string EmpEndBairro { get; set; }
+        [Display(Name = "Cidade")]
         public string EmpEndCidade { get; set; }
+        [Display(Name = "UF")]
         public string EmpEndUF { get; set; }
+        [Display(Name = "CEP")]
         public string EmpEndCEP { get; set; }
+        [Display(Name = "CNAE")]
         public string CNAE { get; set; }
+        [Display(Name = "I.M")]
         public string InscricaoMunicipal { get; set; }
+        [Display(Name = "I.E")]
         public string InscricaoEstadual { get; set; }
+        
         public ICollection<Filiais> Filial { get; set; }
 
 

@@ -6,21 +6,41 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DotPonto.Models;
+using DotPonto.Services;
 
 namespace DotPonto.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //  private readonly ILogger<HomeController> _logger;
+        private readonly EmpresaService _empresaService;
+        private readonly LotacaoService _lotacaoService;
+        private readonly UsuarioService _usuarioService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(EmpresaService empresaService, LotacaoService lotacaoService, UsuarioService usuarioService)
         {
-            _logger = logger;
+            _empresaService = empresaService;
+            _lotacaoService = lotacaoService;
+            _usuarioService = usuarioService;
         }
 
-        public IActionResult Index()
+        //public HomeController(ILogger<HomeController> logger)
+        //{
+        //    _logger = logger;
+        //}
+
+        public async Task<IActionResult> Index()
         {
+            var emp = await _empresaService.FindAllAsync();
+            var lot = await _lotacaoService.FindAllAsync();
+            var usu = await _usuarioService.FindAllAsync();
+
+            ViewData["QtdEmp"] = emp.Count;
+            ViewData["QtdLot"] = lot.Count;
+            ViewData["QtdUsu"] = usu.Count;
+
             return View();
+            
         }
 
         public IActionResult Privacy()

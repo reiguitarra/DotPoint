@@ -12,6 +12,8 @@ namespace DotPonto.Models
         public int FuId { get; set; }
         public string Nome { get; set; }
         public DateTime Nascimento { get; set; }
+        public DateTime Admissao { get; set; }
+        public DateTime Demissao { get; set; }
         public char Sexo { get; set; }
         public string Mae { get; set; }
         public string Pai { get; set; }
@@ -35,7 +37,7 @@ namespace DotPonto.Models
 
         }
 
-        public Funcionarios(int fuId, string nome, DateTime nascimento, char sexo, string mae, string pai, string rG, 
+        public Funcionarios(int fuId, string nome, DateTime nascimento, DateTime admissao, DateTime demissao, char sexo, string mae, string pai, string rG, 
             string pIS, string cPF, string fuEndRua, string fuEndNumero, string fuEndBairro, 
             string fuEndCidade, string fuEndUF, 
             Empresas empresas, Filiais filiais, Lotacao lotacao)
@@ -43,6 +45,8 @@ namespace DotPonto.Models
             FuId = fuId;
             Nome = nome;
             Nascimento = nascimento;
+            Admissao = admissao;
+            Demissao = demissao;
             Sexo = sexo;
             Mae = mae;
             Pai = pai;

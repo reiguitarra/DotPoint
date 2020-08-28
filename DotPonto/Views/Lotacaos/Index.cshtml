@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DotPonto.Models.Lotacao>
+
+@{
+    ViewData["Title"] = "Lotações";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-warning">Adicionar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LotNome)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.LotNome)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.LotId" class="btn btn-primary">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.LotId" class="btn btn-secondary">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.LotId" class="btn btn-danger">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

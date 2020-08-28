@@ -1,8 +1,27 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model DotPonto.Models.Empresas
+
+@{
+    ViewData["Title"] = "DashBoard";
 }
 
+
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">DashBoard</h1>
+
+    <div class="flex-container">
+        <div>Empresa</div>
+        <div>Filial</div>
+        <div>Lotações</div>
+        <div>Usuários</div>
+
+    </div>
+
+    <div class="flex-container">
+        <div>@ViewData["QtdEmp"]</div>
+        <div>0</div>
+        <div>@ViewData["QtdLot"]</div>
+        <div>@ViewData["QtdUsu"]</div>
+
+    </div>
 </div>

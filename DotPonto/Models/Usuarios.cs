@@ -1,4 +1,5 @@
 ﻿using DotPonto.Models.Enums;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -11,10 +12,21 @@ namespace DotPonto.Models
     {
         [Key]
         public int UsuId { get; set; }
+
+        [Display(Name = "Usuário")]
         public string Usuario { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
         public string Senha { get; set; }
+
+        [Display(Name ="E-Mail")]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         public bool Ativo { get; set; }
+
+       
+        [Display(Name = "Tipo")]
         public TipoUsuario TipoUsuario { get; set; }
 
         public Usuarios()

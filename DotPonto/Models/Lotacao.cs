@@ -10,6 +10,10 @@ namespace DotPonto.Models
     {
         [Key]
         public int LotId { get; set; }
+
+        [Display(Name = "Descrição")]
+        [Required(ErrorMessage = "{0} é Requerido!")]
+        [StringLength(30, MinimumLength = 3, ErrorMessage = "O nome {0} deve ter de {2} a {1} Caracteres!")]
         public string LotNome { get; set; }
 
         public Lotacao()
@@ -21,6 +25,16 @@ namespace DotPonto.Models
         {
             LotId = lotId;
             LotNome = lotNome;
+        }
+
+        public int ContaRegistros()
+        {
+            List<int> reg = new List<int>();
+            reg.Add(LotId);
+
+            int res = reg.Count();
+
+            return res;
         }
     }
 }
