@@ -1,0 +1,137 @@
+﻿@model IEnumerable<DotPonto.Models.Funcionarios>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nascimento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Admissao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Demissao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mae)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pai)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PIS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CPF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FuEndRua)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FuEndNumero)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FuEndBairro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FuEndCidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FuEndUF)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Empresas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Filiais)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lotacao)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Admissao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Demissao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mae)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PIS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuEndRua)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuEndNumero)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuEndBairro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuEndCidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FuEndUF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Empresas.RazaoSocial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Filiais.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lotacao.LotNome)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FuId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FuId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FuId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

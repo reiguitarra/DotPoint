@@ -1,0 +1,111 @@
+﻿@model DotPonto.Models.ViewModels.FuncionariosViewModel
+
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Funcionarios</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Funcionarios.Nome" class="control-label"></label>
+                <input asp-for="Funcionarios.Nome" class="form-control" />
+                <span asp-validation-for="Funcionarios.Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionarios.Nascimento" class="control-label"></label>
+                <input asp-for="Funcionarios.Nascimento" class="form-control" />
+                <span asp-validation-for="Funcionarios.Nascimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionarios.Admissao" class="control-label"></label>
+                <input asp-for="Funcionarios.Admissao" class="form-control" />
+                <span asp-validation-for="Funcionarios.Admissao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionarios.Demissao" class="control-label"></label>
+                <input asp-for="Funcionarios.Demissao" class="form-control" />
+                <span asp-validation-for="Funcionarios.Demissao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionarios.Sexo" class="control-label">Masculino</label>
+                <input type="radio" asp-for="Funcionarios.Sexo" value="M" />
+                <label asp-for="Funcionarios.Sexo" class="control-label">Feminino</label>
+                <input type="radio" asp-for="Funcionarios.Sexo" value="F" />
+                <span asp-validation-for="Funcionarios.Sexo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionarios.Mae" class="control-label"></label>
+                <input asp-for="Funcionarios.Mae" class="form-control" />
+                <span asp-validation-for="Funcionarios.Mae" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionarios.Pai" class="control-label"></label>
+                <input asp-for="Funcionarios.Pai" class="form-control" />
+                <span asp-validation-for="Funcionarios.Pai" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionarios.RG" class="control-label"></label>
+                <input asp-for="Funcionarios.RG" class="form-control" />
+                <span asp-validation-for="Funcionarios.RG" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionarios.PIS" class="control-label"></label>
+                <input asp-for="Funcionarios.PIS" class="form-control" />
+                <span asp-validation-for="Funcionarios.PIS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionarios.CPF" class="control-label"></label>
+                <input asp-for="Funcionarios.CPF" class="form-control" />
+                <span asp-validation-for="Funcionarios.CPF" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionarios.FuEndRua" class="control-label"></label>
+                <input asp-for="Funcionarios.FuEndRua" class="form-control" />
+                <span asp-validation-for="Funcionarios.FuEndRua" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionarios.FuEndNumero" class="control-label"></label>
+                <input asp-for="Funcionarios.FuEndNumero" class="form-control" />
+                <span asp-validation-for="Funcionarios.FuEndNumero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionarios.FuEndBairro" class="control-label"></label>
+                <input asp-for="Funcionarios.FuEndBairro" class="form-control" />
+                <span asp-validation-for="Funcionarios.FuEndBairro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionarios.FuEndCidade" class="control-label"></label>
+                <input asp-for="Funcionarios.FuEndCidade" class="form-control" />
+                <span asp-validation-for="Funcionarios.FuEndCidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionarios.FuEndUF" class="control-label"></label>
+                <input asp-for="Funcionarios.FuEndUF" class="form-control" />
+                <span asp-validation-for="Funcionarios.FuEndUF" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Funcionarios.EmpresasId" class="control-label"></label>
+                <select asp-for="Funcionarios.EmpresasId" asp-items="@(new SelectList(Model.Empresas, "Id","RazaoSocial"))" class ="form-control"></select>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

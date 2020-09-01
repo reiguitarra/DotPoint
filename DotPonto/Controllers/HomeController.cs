@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DotPonto.Models;
+using DotPonto.Models.ViewModels;
 using DotPonto.Services;
 
 namespace DotPonto.Controllers

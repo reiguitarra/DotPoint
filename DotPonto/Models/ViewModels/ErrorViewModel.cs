@@ -1,10 +1,12 @@
-using System;
+﻿using System;
 
-namespace DotPonto.Models
+
+namespace DotPonto.Models.ViewModels
 {
     public class ErrorViewModel
     {
         public string RequestId { get; set; }
+        public string Message { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }

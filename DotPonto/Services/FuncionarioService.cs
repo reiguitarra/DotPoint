@@ -25,7 +25,7 @@ namespace DotPonto.Services
             return await _context.Funcionarios.OrderBy(x => x.Nome).ToListAsync();
         }
 
-        public async Task<Funcionarios> FindById(int id)
+        public async Task<Funcionarios> FindByIdAsync(int id)
         {
             return await _context.Funcionarios.FirstOrDefaultAsync(obj => obj.FuId == id);
         }

@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DotPonto.Migrations
 {
     [DbContext(typeof(DotPontoContext))]
-    [Migration("20200826150610_newMigr")]
-    partial class newMigr
+    [Migration("20200831190353_myMigration0")]
+    partial class myMigration0
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,6 +53,7 @@ namespace DotPonto.Migrations
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("RazaoSocial")
+                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.HasKey("Id");
@@ -112,8 +113,14 @@ namespace DotPonto.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("Admissao")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("CPF")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime>("Demissao")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("EmpresasId")
                         .HasColumnType("int");
@@ -157,10 +164,6 @@ namespace DotPonto.Migrations
                     b.Property<string>("RG")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
-                    b.Property<string>("Sexo")
-                        .IsRequired()
-                        .HasColumnType("varchar(1) CHARACTER SET utf8mb4");
-
                     b.HasKey("FuId");
 
                     b.HasIndex("EmpresasId");
@@ -179,7 +182,9 @@ namespace DotPonto.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("LotNome")
-                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+                        .IsRequired()
+                        .HasColumnType("varchar(30) CHARACTER SET utf8mb4")
+                        .HasMaxLength(30);
 
                     b.HasKey("LotId");
 
@@ -199,6 +204,7 @@ namespace DotPonto.Migrations
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<string>("Senha")
+                        .IsRequired()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
                     b.Property<int>("TipoUsuario")

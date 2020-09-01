@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace DotPonto.Migrations
 {
-    public partial class newMigr : Migration
+    public partial class myMigration0 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +14,7 @@ namespace DotPonto.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    RazaoSocial = table.Column<string>(nullable: true),
+                    RazaoSocial = table.Column<string>(nullable: false),
                     EmpEndereco = table.Column<string>(nullable: true),
                     EmpEndNumero = table.Column<string>(nullable: true),
                     EmpEndBairro = table.Column<string>(nullable: true),
@@ -36,7 +36,7 @@ namespace DotPonto.Migrations
                 {
                     LotId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    LotNome = table.Column<string>(nullable: true)
+                    LotNome = table.Column<string>(maxLength: 30, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -50,7 +50,7 @@ namespace DotPonto.Migrations
                     UsuId = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Usuario = table.Column<string>(nullable: true),
-                    Senha = table.Column<string>(nullable: true),
+                    Senha = table.Column<string>(nullable: false),
                     Email = table.Column<string>(nullable: true),
                     Ativo = table.Column<bool>(nullable: false),
                     TipoUsuario = table.Column<int>(nullable: false)
@@ -97,7 +97,8 @@ namespace DotPonto.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Nome = table.Column<string>(nullable: true),
                     Nascimento = table.Column<DateTime>(nullable: false),
-                    Sexo = table.Column<string>(nullable: false),
+                    Admissao = table.Column<DateTime>(nullable: false),
+                    Demissao = table.Column<DateTime>(nullable: false),
                     Mae = table.Column<string>(nullable: true),
                     Pai = table.Column<string>(nullable: true),
                     RG = table.Column<string>(nullable: true),
