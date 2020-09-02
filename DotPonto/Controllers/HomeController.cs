@@ -17,12 +17,14 @@ namespace DotPonto.Controllers
         private readonly EmpresaService _empresaService;
         private readonly LotacaoService _lotacaoService;
         private readonly UsuarioService _usuarioService;
+        private readonly FilialService _filialService;
 
-        public HomeController(EmpresaService empresaService, LotacaoService lotacaoService, UsuarioService usuarioService)
+        public HomeController(EmpresaService empresaService, LotacaoService lotacaoService, UsuarioService usuarioService, FilialService filialService)
         {
             _empresaService = empresaService;
             _lotacaoService = lotacaoService;
             _usuarioService = usuarioService;
+            _filialService = filialService;
         }
 
         //public HomeController(ILogger<HomeController> logger)
@@ -35,10 +37,12 @@ namespace DotPonto.Controllers
             var emp = await _empresaService.FindAllAsync();
             var lot = await _lotacaoService.FindAllAsync();
             var usu = await _usuarioService.FindAllAsync();
+            var fil = await _filialService.FindAllAsync();
 
             ViewData["QtdEmp"] = emp.Count;
             ViewData["QtdLot"] = lot.Count;
             ViewData["QtdUsu"] = usu.Count;
+            ViewData["QtdFil"] = fil.Count;
 
             return View();
             

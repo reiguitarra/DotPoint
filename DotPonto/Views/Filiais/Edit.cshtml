@@ -1,0 +1,84 @@
+﻿@model DotPonto.Models.Filiais
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Filiais</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="RazaoSocial" class="control-label"></label>
+                <input asp-for="RazaoSocial" class="form-control" />
+                <span asp-validation-for="RazaoSocial" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpEndereco" class="control-label"></label>
+                <input asp-for="EmpEndereco" class="form-control" />
+                <span asp-validation-for="EmpEndereco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpEndNumero" class="control-label"></label>
+                <input asp-for="EmpEndNumero" class="form-control" />
+                <span asp-validation-for="EmpEndNumero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpEndBairro" class="control-label"></label>
+                <input asp-for="EmpEndBairro" class="form-control" />
+                <span asp-validation-for="EmpEndBairro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpEndCidade" class="control-label"></label>
+                <input asp-for="EmpEndCidade" class="form-control" />
+                <span asp-validation-for="EmpEndCidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpEndUF" class="control-label"></label>
+                <input asp-for="EmpEndUF" class="form-control" />
+                <span asp-validation-for="EmpEndUF" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpEndCEP" class="control-label"></label>
+                <input asp-for="EmpEndCEP" class="form-control" />
+                <span asp-validation-for="EmpEndCEP" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CNAE" class="control-label"></label>
+                <input asp-for="CNAE" class="form-control" />
+                <span asp-validation-for="CNAE" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InscricaoMunicipal" class="control-label"></label>
+                <input asp-for="InscricaoMunicipal" class="form-control" />
+                <span asp-validation-for="InscricaoMunicipal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InscricaoEstadual" class="control-label"></label>
+                <input asp-for="InscricaoEstadual" class="form-control" />
+                <span asp-validation-for="InscricaoEstadual" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmpresasId" class="control-label"></label>
+                <select asp-for="EmpresasId" class="form-control" asp-items="ViewBag.EmpresasId"></select>
+                <span asp-validation-for="EmpresasId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

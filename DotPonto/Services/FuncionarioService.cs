@@ -22,7 +22,12 @@ namespace DotPonto.Services
 
         public async Task<List<Funcionarios>> FindAllAsync()
         {
-            return await _context.Funcionarios.OrderBy(x => x.Nome).ToListAsync();
+            return await _context.Funcionarios.OrderBy(x => x.Nome)
+                
+                .Include(x => x.Empresas)
+                .Include(x => x.Filiais)
+                .Include(x => x.Lotacao)
+                .ToListAsync();
         }
 
         public async Task<Funcionarios> FindByIdAsync(int id)

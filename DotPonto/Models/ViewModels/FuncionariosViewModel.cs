@@ -9,6 +9,7 @@ namespace DotPonto.Models.ViewModels
     {
         public Funcionarios Funcionarios { get; set; }
         public ICollection<Empresas> Empresas { get; set; }
-
+        public ICollection<Filiais> Filiais { get; set; }
+        public ICollection<Lotacao> Lotacao { get; set; }
     }
 }

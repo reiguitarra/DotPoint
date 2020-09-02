@@ -121,15 +121,15 @@
                 @Html.DisplayFor(modelItem => item.Empresas.RazaoSocial)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Filiais.Id)
+                @Html.DisplayFor(modelItem => item.Filiais.RazaoSocial)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Lotacao.LotNome)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.FuId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FuId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FuId">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.FuId" class="btn btn-primary">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.FuId" class="btn btn-secondary">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.FuId" class="btn btn-danger">Deletar</a>
             </td>
         </tr>
 }

@@ -41,20 +41,21 @@ namespace DotPonto.Models
         [Display(Name = "UF")]
         public string FuEndUF { get; set; }
 
-        [Display(Name = "Empresa")]
+        
         public Empresas Empresas { get; set; }
 
-        
+        [Display(Name = "Empresa")]
         public int EmpresasId { get; set; }
 
-        [Display(Name = "Filial")]
+        
         public Filiais Filiais { get; set; }
 
-        
+        [Display(Name = "Filial")]
         public int FiliaisId { get; set; }
 
-        [Display(Name = "Lotação")]
+       
         public Lotacao Lotacao { get; set; }
+        [Display(Name = "Lotação")]
         public int LotacaoId  { get; set; }
 
         public Funcionarios()

@@ -15,11 +15,15 @@ namespace DotPonto.Controllers
     {
         private readonly FuncionarioService _funcionarioService;
         private readonly EmpresaService _empresaService;
+        private readonly FilialService _filialService;
+        private readonly LotacaoService _lotacaoService;
 
-        public FuncionariosController(FuncionarioService funcionarioService, EmpresaService empresaService)
+        public FuncionariosController(FuncionarioService funcionarioService, EmpresaService empresaService, FilialService filialService, LotacaoService lotacaoService)
         {
             _funcionarioService = funcionarioService;
             _empresaService = empresaService;
+            _filialService = filialService;
+            _lotacaoService = lotacaoService;
         }
 
         // GET: Funcionarios
@@ -58,7 +62,10 @@ namespace DotPonto.Controllers
              ViewData["LotacaoId"] = new SelectList(_context.Lotacao, "LotId", "LotNome");*/
 
             var emp = await _empresaService.FindAllAsync();
-            var func = new FuncionariosViewModel { Empresas = emp };
+            var fil = await _filialService.FindAllAsync();
+            var lot = await _lotacaoService.FindAllAsync();
+
+            var func = new FuncionariosViewModel { Empresas = emp, Filiais = fil, Lotacao = lot };
             return View(func);
         }
 
@@ -68,15 +75,15 @@ namespace DotPonto.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Funcionarios funcionarios)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 var empresas = await _empresaService.FindAllAsync();
-                var viewModel = new FuncionariosViewModel { Funcionarios = funcionarios, Empresas = empresas };
+                var fil = await _filialService.FindAllAsync();
+                var lot = await _lotacaoService.FindAllAsync();
+                var viewModel = new FuncionariosViewModel { Funcionarios = funcionarios, Empresas = empresas, Filiais = fil, Lotacao = lot };
 
                 return View(viewModel);
-                /*_context.Add(funcionarios);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));*/
+                
 
              }
 
@@ -120,7 +127,9 @@ namespace DotPonto.Controllers
             if (!ModelState.IsValid)
             {
                 var emp = await _empresaService.FindAllAsync();
-                var viewModel = new FuncionariosViewModel { Funcionarios = funcionarios, Empresas = emp };
+                var fil = await _filialService.FindAllAsync();
+                var lot = await _lotacaoService.FindAllAsync();
+                var viewModel = new FuncionariosViewModel { Funcionarios = funcionarios, Empresas = emp, Filiais = fil, Lotacao = lot };
 
                 return View(viewModel);
             }
