@@ -23,6 +23,12 @@ namespace DotPonto.Models
         [Display(Name ="E-Mail")]
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
+
+        [Display(Name = "Telefone")]
+        public string UsuTelefone { get; set; }
+
+        [Display(Name = "Celular")]
+        public string UsuCelular { get; set; }
         public bool Ativo { get; set; }
 
        

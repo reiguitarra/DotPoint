@@ -41,7 +41,9 @@ namespace DotPonto.Models
         [Display(Name = "UF")]
         public string FuEndUF { get; set; }
 
-        
+        public string Telefone { get; set; }
+        public string Celular { get; set; }
+
         public Empresas Empresas { get; set; }
 
         [Display(Name = "Empresa")]
@@ -91,5 +93,6 @@ namespace DotPonto.Models
 
 
         
+
     }
 }

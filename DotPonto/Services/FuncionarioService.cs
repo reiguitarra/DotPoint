@@ -1,10 +1,12 @@
 ﻿using DotPonto.Data;
 using DotPonto.Models;
+using DotPonto.Models.ViewModels;
 using DotPonto.Services.Exception;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 
@@ -79,6 +81,16 @@ namespace DotPonto.Services
                 throw new IntegrityException("Não foi possível excluir a Lotação, a mesma já está sendo usada. " + e.Message);
 
             }
+
+        }
+
+        public int CalculoIdade(DateTime dt)
+        {
+            TimeSpan ida = DateTime.Now.Subtract(dt);
+
+            int res = ida.Days / 365;
+
+            return res;
 
         }
 

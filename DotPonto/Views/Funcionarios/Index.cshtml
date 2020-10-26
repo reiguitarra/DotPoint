@@ -1,4 +1,4 @@
-﻿@model IEnumerable<DotPonto.Models.Funcionarios>
+﻿@model IEnumerable<DotPonto.Models.Funcionarios> 
 
 @{
     ViewData["Title"] = "Funcionários";
@@ -17,6 +17,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Nascimento)
+            </th>
+            <th>
+                Idade
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Admissao)
@@ -66,6 +69,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Lotacao)
             </th>
+           
             <th></th>
         </tr>
     </thead>
@@ -78,6 +82,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Nascimento)
             </td>
+            <td>
+                @ViewData["Idade"]
+            </td>
+
             <td>
                 @Html.DisplayFor(modelItem => item.Admissao)
             </td>
@@ -126,6 +134,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Lotacao.LotNome)
             </td>
+
             <td>
                 <a asp-action="Edit" asp-route-id="@item.FuId" class="btn btn-primary">Editar</a> |
                 <a asp-action="Details" asp-route-id="@item.FuId" class="btn btn-light">Detalhes</a> |

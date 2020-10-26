@@ -29,8 +29,23 @@ namespace DotPonto.Controllers
         // GET: Funcionarios
         public async Task<IActionResult> Index()
         {
+            
             var fuList = await _funcionarioService.FindAllAsync();
+
+            foreach (var item in fuList)
+            {
+                ViewData["Idade"] = _funcionarioService.CalculoIdade(item.Nascimento);
+            }
+
+            //foreach (var item in fuList)
+            //{
+            //    ViewData["Idade"] = _funcionarioService.CalculaIdade(item.Nascimento);
+            //}
+
+
+            
             return View(fuList);
+            
                 
                 /*_context.Funcionarios.Include(f => f.Empresas).Include(f => f.Filiais).Include(f => f.Lotacao);
             return View(await dotPontoContext.ToListAsync());*/
@@ -121,7 +136,7 @@ namespace DotPonto.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id , Funcionarios funcionarios)
+        public async Task<IActionResult> Edit(int id , Funcionarios funcionario)
         {
 
             if (!ModelState.IsValid)
@@ -129,12 +144,12 @@ namespace DotPonto.Controllers
                 var emp = await _empresaService.FindAllAsync();
                 var fil = await _filialService.FindAllAsync();
                 var lot = await _lotacaoService.FindAllAsync();
-                var viewModel = new FuncionariosViewModel { Funcionarios = funcionarios, Empresas = emp, Filiais = fil, Lotacao = lot };
+                var viewModel = new FuncionariosViewModel { Funcionarios = funcionario, Empresas = emp, Filiais = fil, Lotacao = lot };
 
                 return View(viewModel);
             }
 
-            if (id != funcionarios.FuId)
+            if (id != funcionario.FuId)
             {
                 return RedirectToAction(nameof(Error), new { message = "Os Ids não correspondem!" });
             }
@@ -142,7 +157,7 @@ namespace DotPonto.Controllers
 
             try
             {
-                await _funcionarioService.UpdateAsync(funcionarios);
+                await _funcionarioService.UpdateAsync(funcionario);
                 return RedirectToAction(nameof(Index));
             }
             catch (NotFoundException e)
